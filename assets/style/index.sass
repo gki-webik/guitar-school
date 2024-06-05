@@ -1,0 +1,460 @@
+$color-orange: #F28B64
+$color-blue: #488AEA
+$color-gray: #E5E5E5
+$tr: 0.15s all ease-in-out
+
+*
+    box-sizing: border-box
+html, body
+    padding: 0
+    margin: 0
+    font-family: "Montserrat", sans-serif
+    font-optical-sizing: auto
+    font-weight: 500
+    font-size: 17px
+    font-style: normal
+.max-container
+    max-width: 2000px
+    margin: 0 auto
+    width: 100%
+header
+    width: 100%
+    border-bottom: 1px solid #ddd
+.header
+    margin: 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 10px
+    max-width: 1200px
+    margin: 0 auto
+    &_btn
+        cursor: pointer
+        position: fixed
+        display: none
+        width: 100%
+        text-align: right
+        padding-right: 50px
+        &::after
+            position: absolute
+            color: black
+        &:not(.is-open)::after
+            content: "☰"
+            font-weight: 900
+            font-size: 1.5em
+            padding-top: 5px
+        &.is-open::after
+            content: "×"
+            font-size: 2.5em
+    &_left
+        user-select: none !important
+        img
+            width: 80px
+    &_right
+        nav
+            display: flex
+            gap: 30px
+            a
+                text-decoration: none
+                color: currentColor
+                &:hover
+                    background-image: linear-gradient(45deg, $color-blue, $color-orange)
+                    color: transparent
+                    background-clip: text
+
+@media screen and (max-width: 420px)
+    .block_1
+        padding-top: 100px !important
+    .header
+        flex-direction: column
+        gap: 30px
+        height: 100vh
+        position: fixed
+        width: 100%
+        border-bottom: 1px solid #ddd
+        background-color: white
+        padding: 10px !important
+        width: 100%
+        z-index: 999999
+        &_btn
+            display: block
+        &_left
+            padding-top: 5px
+            img
+                width: 65px
+        &_right
+            height: 100%
+            display: flex
+            align-items: center
+            nav
+                align-items: center
+                justify-content: center
+                flex-direction: column
+        &:not(.is-open)
+            height: 70px !important
+            overflow: hidden
+            .header
+                &_right
+                    display: none
+.block_1
+    position: relative
+    display: flex
+    justify-content: space-around
+    overflow: hidden
+    gap: 10px
+    padding: 0 10px
+    background-color: #F0F0F0
+    min-height: 100vh
+    &_left
+        height: calc(100vh - 70px)
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        img
+            max-width: 800px
+            width: 100%
+    &_right
+        height: calc(100vh - 70px)
+        display: flex
+        flex-direction: column
+        justify-content: center
+        position: relative
+        z-index: 9
+        padding-bottom: 30px
+        gap: 20px
+        &__soc
+            display: flex
+            gap: 5px
+            &_item
+                background-color: #ededed
+                width: 50px
+                height: 50px
+                border: 2px solid $color-blue
+                border-radius: 9999px
+                text-align: center
+                padding: 10px
+                display: flex
+                justify-content: center
+                align-items: center
+                cursor: pointer
+                transition: $tr
+                &:hover
+                    background-color: $color-blue
+                &:hover svg path
+                    fill: #ffffff
+            svg
+                width: 22px
+                height: 22px
+        &__title
+            h1
+                margin: 0
+                padding: 0
+                font-size: 3rem
+                display: flex
+            span
+                border-bottom: 2px solid black
+                width: 50px
+                display: block
+        &__text
+            font-size: 1rem
+        &__btn_container
+            display: flex
+            gap: 30px
+            flex-wrap: wrap
+            &__btn
+                button
+                    border-radius: 99999px
+                    background: $color-orange
+                    padding: 15px 30px
+                    border: none
+                    cursor: pointer
+                    transition: $tr
+                    font-size: 1rem
+                    color: white
+                    &:hover
+                        background: $color-blue
+            &__text
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 10px
+                font-weight: 400
+
+@media screen and (max-width: 975px)
+    .block_1
+        flex-wrap: wrap
+        align-items: center
+        justify-content: center
+        gap: 30px
+        padding-top: 50px
+        &_left,
+        &_right
+            height: initial !important
+        &_left
+            img
+                max-width: 500px
+        &_right
+            align-items: center
+            justify-content: center
+            &__btn_container
+                align-items: center
+                justify-content: center
+            &__text
+                text-align: center
+
+.circle
+    width: 215px
+    height: 215px
+    display: flex
+    justify-content: center
+    border-radius: 9999px
+    align-items: center
+    background-image: linear-gradient(143.92deg, $color-orange 19.86%, $color-blue 58.63%, #2c2c2c 91.43%)
+    opacity: 0.7
+    &.is-1
+        position: absolute
+        bottom: -55px
+        right: -55px
+        .circle_mask
+            background-color: #F0F0F0
+    &.is-2
+        position: absolute
+        right: -50px
+        width: 255px
+        height: 255px
+        top: 30%
+        opacity: 0.5
+        .circle_mask
+            background-color: #F0F0F0
+            width: 185px
+            height: 185px
+    &.is-3
+        position: absolute
+        top: -55px
+        right: -55px
+        .circle_mask
+            background-color: #F0F0F0
+    &_mask
+        width: 155px
+        height: 155px
+        border-radius: 9999px
+
+@media screen and (max-width: 450px)
+    .circle
+        &.is-1
+            opacity: 0.4 !important
+
+.block_2
+    padding-top: 70px
+    padding-left: 10px
+    padding-right: 10px
+    &__title
+        max-width: 1140px
+        margin: 0 auto
+        h2
+            font-size: clamp(2.2rem, 6vw, 3rem)
+            span
+                border-bottom: 2px solid black
+    &__cards
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        gap: 30px
+        &__item
+            display: flex
+            border-radius: 10px
+            padding: 25px 25px 0 25px
+            &:nth-child(1)
+                background-color: $color-gray
+            &:nth-child(2)
+                background-color: $color-orange
+            &:nth-child(3)
+                background-color: $color-blue
+            &_text
+                writing-mode: vertical-rl
+                text-align: center
+                font-size: 2rem
+                font-weight: 600
+                padding-left: 30px
+
+@media screen and (max-width: 1157px)
+    .block_2__title
+        max-width: 755px
+
+@media screen and (max-width: 768px)
+    .block_2__title
+        display: flex
+        align-items: center
+        justify-content: center
+@media screen and (max-width: 420px)
+    .block_2__cards__item
+        padding: 10px 10px 0 10px !important
+        &__text
+            font-size: 2rem !important
+        img
+            max-width: 150px
+            width: 100%
+.block_2
+    &__cards2
+        margin-top: 50px
+        display: flex
+        gap: 50px
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+        padding: 10px
+        &_item
+            display: flex
+            gap: 20px
+            align-items: center
+            justify-content: center
+            &__right
+                width: 135px
+                &__title
+                    font-size: clamp(2.2rem, 6vw, 3rem)
+
+@media screen and (max-width: 515px)
+    .block_2__cards2
+        display: flex
+        flex-direction: column !important
+        &_item
+            width: 100%
+            justify-content: space-between
+            max-width: 300px
+            &__right
+                width: 135px
+
+.block_3
+    margin-top: 100px
+    position: relative
+    padding: 30px
+    gap: 20px
+    min-height: 75vh
+    overflow: hidden
+    background-color: #F0F0F0
+    &_box
+        width: 100%
+        max-width: 1300px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        margin: 0 auto
+    h2
+        font-size: 3rem
+    &__left
+        min-height: 75vh
+        display: flex
+        align-items: center
+        max-width: 350px
+        width: 100%
+        position: relative
+        h2
+            position: relative
+            z-index: 35
+            width: 100%
+            text-align: center
+            span
+                border-bottom: 2px solid black
+        img
+            position: absolute
+            top: 45%
+    &__right
+        display: flex
+        flex-direction: column
+        justify-content: center
+        gap: 20px
+        &__title
+            h2
+                margin: 0
+            span
+                border-bottom: 2px solid black
+        &__text
+            max-width: 500px
+        &__btn_container
+            display: flex
+            flex-wrap: wrap
+            align-items: center
+            justify-content: center
+            gap: 40px
+            &__left
+                button
+                    border-radius: 99999px
+                    background: $color-orange
+                    padding: 15px 30px
+                    border: none
+                    cursor: pointer
+                    transition: $tr
+                    font-size: 1rem
+                    color: white
+                    &:hover
+                        background: $color-blue
+            &__right
+                display: flex
+                gap: 20px
+                align-items: center
+
+@media screen and (max-width: 910px)
+    .block_3_box
+        justify-content: center !important
+@media screen and (max-width: 630px)
+    .block_3__left
+        display: none
+@media screen and (max-width: 465px)
+    .circle.is-3
+        opacity: 0.4
+    .block_3__right__title
+        position: relative
+        z-index: 5
+
+.block_4
+    padding: 10px 10px 0 10px
+    display: flex
+    max-width: 1400px
+    justify-content: space-between
+    &__left
+        img
+            width: 100%
+    &__right
+        h2
+            font-size: clamp(2.2rem, 6vw, 3rem)
+            span
+                border-bottom: 2px solid black
+        &__soc
+            display: flex
+            gap: 5px
+            &_item
+                background-color: #ededed
+                width: 50px
+                height: 50px
+                border: 2px solid $color-blue
+                border-radius: 9999px
+                text-align: center
+                padding: 10px
+                display: flex
+                justify-content: center
+                align-items: center
+                cursor: pointer
+                transition: $tr
+                &:hover
+                    background-color: $color-blue
+                &:hover svg path
+                    fill: #ffffff
+            svg
+                width: 22px
+                height: 22px
+
+@media screen and (max-width: 1067px)
+    .block_4
+        padding-bottom: 50px
+        &__left
+            display: none
+        &__right
+            width: 100%
+            display: flex
+            justify-content: center
+            flex-direction: column
+            align-items: center
+            h2
+                text-align: center
